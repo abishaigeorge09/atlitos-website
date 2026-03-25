@@ -1,7 +1,3 @@
-"use client";
-
-import { motion } from "framer-motion";
-
 const stats = [
   {
     number: "100M+",
@@ -27,13 +23,7 @@ export default function Problem() {
       <div className="absolute inset-0 bg-gradient-to-b from-[#0F1520] to-[#080C14]" />
 
       <div className="relative z-10 max-w-6xl mx-auto">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-16"
-        >
+        <div className="text-center mb-16">
           <p className="text-[#E85A1A] text-sm font-mono tracking-[0.3em] uppercase mb-4">
             The Problem
           </p>
@@ -42,23 +32,16 @@ export default function Problem() {
             <br />
             <span className="text-[#64748B]">THE ACCESS DOES NOT.</span>
           </h2>
-        </motion.div>
+        </div>
 
         <div className="grid md:grid-cols-2 gap-6">
           {stats.map((stat, i) => (
-            <motion.div
-              key={i}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-50px" }}
-              transition={{ duration: 0.5, delay: i * 0.1 }}
-              className="glass-card rounded-2xl p-8"
-            >
+            <div key={i} className="glass-card rounded-2xl p-8">
               <p className="font-display text-4xl md:text-5xl font-bold gradient-text mb-3">
                 {stat.number}
               </p>
               <p className="text-[#94A3B8] leading-relaxed">{stat.text}</p>
-            </motion.div>
+            </div>
           ))}
         </div>
       </div>

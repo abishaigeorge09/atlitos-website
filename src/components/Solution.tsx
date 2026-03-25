@@ -1,7 +1,3 @@
-"use client";
-
-import { motion } from "framer-motion";
-
 const features = [
   {
     icon: "🎯",
@@ -40,13 +36,7 @@ export default function Solution() {
   return (
     <section id="solution" className="py-24 md:py-32 px-6 relative">
       <div className="relative z-10 max-w-6xl mx-auto">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-16"
-        >
+        <div className="text-center mb-16">
           <p className="text-[#E85A1A] text-sm font-mono tracking-[0.3em] uppercase mb-4">
             The Solution
           </p>
@@ -59,18 +49,11 @@ export default function Solution() {
             A mobile-first AI tennis coaching app that uses your phone camera to
             deliver real-time body mechanics analysis — zero hardware required.
           </p>
-        </motion.div>
+        </div>
 
         <div className="grid md:grid-cols-2 gap-6 mb-24">
           {features.map((feature, i) => (
-            <motion.div
-              key={i}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-50px" }}
-              transition={{ duration: 0.5, delay: i * 0.1 }}
-              className="glass-card rounded-2xl p-8"
-            >
+            <div key={i} className="glass-card rounded-2xl p-8">
               <span className="text-3xl mb-4 block">{feature.icon}</span>
               <h3 className="font-display text-xl font-bold mb-3 text-white tracking-wide">
                 {feature.title}
@@ -78,38 +61,25 @@ export default function Solution() {
               <p className="text-[#94A3B8] text-sm leading-relaxed">
                 {feature.description}
               </p>
-            </motion.div>
+            </div>
           ))}
         </div>
 
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-12"
-        >
+        <div className="text-center mb-12">
           <h3 className="font-display text-3xl md:text-4xl font-bold text-white">
             HOW IT WORKS
           </h3>
-        </motion.div>
+        </div>
 
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
           {flow.map((item, i) => (
-            <motion.div
-              key={i}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-50px" }}
-              transition={{ duration: 0.5, delay: i * 0.15 }}
-              className="text-center"
-            >
+            <div key={i} className="text-center">
               <p className="font-display text-6xl font-bold text-[#E85A1A]/20 mb-3">
                 {item.step}
               </p>
               <h4 className="text-lg font-bold text-white mb-1">{item.title}</h4>
               <p className="text-sm text-[#64748B]">{item.desc}</p>
-            </motion.div>
+            </div>
           ))}
         </div>
       </div>

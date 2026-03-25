@@ -1,7 +1,3 @@
-"use client";
-
-import { motion } from "framer-motion";
-
 const stages = [
   {
     number: "01",
@@ -11,7 +7,6 @@ const stages = [
     description:
       "Watches every shot. Flags errors instantly. Delivers post-session coaching report.",
     color: "#E85A1A",
-    active: true,
   },
   {
     number: "02",
@@ -21,7 +16,6 @@ const stages = [
     description:
       "Prescribes weekly training plans. Conversational interface. Remembers every session — your history, weaknesses, patterns.",
     color: "#1A6BFF",
-    active: false,
   },
   {
     number: "03",
@@ -31,7 +25,6 @@ const stages = [
     description:
       "Curriculum-based training. Developmental pathway. Progression gates. Bollettieri methodology integrated.",
     color: "#00C27C",
-    active: false,
   },
   {
     number: "04",
@@ -41,7 +34,6 @@ const stages = [
     description:
       "Avatar coach. Match analysis. Wearables. Nutrition. Court booking. The operating system for the tennis player.",
     color: "#F5B800",
-    active: false,
   },
 ];
 
@@ -51,13 +43,7 @@ export default function AICoach() {
       <div className="absolute inset-0 bg-gradient-to-b from-[#080C14] via-[#0F1520] to-[#080C14]" />
 
       <div className="relative z-10 max-w-5xl mx-auto">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-20"
-        >
+        <div className="text-center mb-20">
           <p className="text-[#E85A1A] text-sm font-mono tracking-[0.3em] uppercase mb-4">
             Evolution
           </p>
@@ -70,30 +56,21 @@ export default function AICoach() {
             The AI Coach that grows with you. Four stages of evolution from
             observer to daily companion.
           </p>
-        </motion.div>
+        </div>
 
         <div className="space-y-6">
           {stages.map((stage, i) => (
-            <motion.div
+            <div
               key={i}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-50px" }}
-              transition={{ duration: 0.5, delay: i * 0.1 }}
               className="glass-card rounded-2xl p-8 relative overflow-hidden"
             >
-              {/* Accent bar */}
               <div
                 className="absolute top-0 left-0 w-1 h-full"
                 style={{ backgroundColor: stage.color }}
               />
-
-              <div className="flex flex-col md:flex-row md:items-center gap-4 md:gap-8">
+              <div className="flex flex-col md:flex-row md:items-center gap-4 md:gap-8 pl-4">
                 <div className="flex items-center gap-4 md:w-48 shrink-0">
-                  <span
-                    className="font-display text-3xl font-bold"
-                    style={{ color: stage.color }}
-                  >
+                  <span className="font-display text-3xl font-bold" style={{ color: stage.color }}>
                     {stage.number}
                   </span>
                   <div>
@@ -108,27 +85,20 @@ export default function AICoach() {
                     </span>
                   </div>
                 </div>
-
                 <p className="text-[#94A3B8] text-sm leading-relaxed flex-1">
                   {stage.description}
                 </p>
-
                 <span className="text-xs text-[#64748B] font-mono shrink-0">
                   {stage.role}
                 </span>
               </div>
-            </motion.div>
+            </div>
           ))}
         </div>
 
-        <motion.p
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          className="text-center text-[#64748B] text-sm mt-8 font-mono"
-        >
+        <p className="text-center text-[#64748B] text-sm mt-8 font-mono">
           Observer → Prescriber → Master Coach → Daily Companion
-        </motion.p>
+        </p>
       </div>
     </section>
   );

@@ -1,7 +1,3 @@
-"use client";
-
-import { motion } from "framer-motion";
-
 const features = [
   "Real-Time Body Mechanics",
   "33-Point Pose Detection",
@@ -23,13 +19,7 @@ export default function Competitive() {
   return (
     <section className="py-24 md:py-32 px-6 relative">
       <div className="relative z-10 max-w-6xl mx-auto">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-16"
-        >
+        <div className="text-center mb-16">
           <p className="text-[#E85A1A] text-sm font-mono tracking-[0.3em] uppercase mb-4">
             Why Atlitos
           </p>
@@ -38,15 +28,9 @@ export default function Competitive() {
             <br />
             <span className="gradient-text">YOUR COACH CAN&apos;T</span>
           </h2>
-        </motion.div>
+        </div>
 
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-50px" }}
-          transition={{ duration: 0.6 }}
-          className="glass-card rounded-2xl overflow-hidden"
-        >
+        <div className="glass-card rounded-2xl overflow-hidden">
           <div className="overflow-x-auto">
             <table className="w-full min-w-[600px]">
               <thead>
@@ -70,25 +54,16 @@ export default function Competitive() {
               </thead>
               <tbody>
                 {features.map((feature, fi) => (
-                  <tr
-                    key={fi}
-                    className="border-b border-[#1E293B]/50 last:border-0"
-                  >
+                  <tr key={fi} className="border-b border-[#1E293B]/50 last:border-0">
                     <td className="p-5 text-sm text-[#94A3B8]">{feature}</td>
                     {competitors.map((c) => (
                       <td key={c.name} className="p-5 text-center">
                         {c.values[fi] ? (
-                          <span
-                            className={`text-lg ${
-                              c.name === "Atlitos"
-                                ? "text-[#00C27C]"
-                                : "text-[#64748B]"
-                            }`}
-                          >
-                            &#10003;
+                          <span className={`text-lg ${c.name === "Atlitos" ? "text-[#00C27C]" : "text-[#64748B]"}`}>
+                            ✓
                           </span>
                         ) : (
-                          <span className="text-lg text-[#1E293B]">&mdash;</span>
+                          <span className="text-lg text-[#1E293B]">—</span>
                         )}
                       </td>
                     ))}
@@ -97,7 +72,7 @@ export default function Competitive() {
               </tbody>
             </table>
           </div>
-        </motion.div>
+        </div>
       </div>
     </section>
   );

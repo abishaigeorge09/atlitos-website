@@ -1,7 +1,6 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
 
 const navLinks = [
   { label: "Problem", href: "#problem" },
@@ -22,10 +21,7 @@ export default function Navbar() {
   }, []);
 
   return (
-    <motion.nav
-      initial={{ y: -100 }}
-      animate={{ y: 0 }}
-      transition={{ duration: 0.6, ease: "easeOut" }}
+    <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled
           ? "bg-[#080C14]/90 backdrop-blur-xl border-b border-[#1E293B]"
@@ -71,36 +67,29 @@ export default function Navbar() {
         </button>
       </div>
 
-      <AnimatePresence>
-        {menuOpen && (
-          <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: "auto" }}
-            exit={{ opacity: 0, height: 0 }}
-            className="md:hidden bg-[#080C14]/95 backdrop-blur-xl border-b border-[#1E293B]"
-          >
-            <div className="flex flex-col gap-4 px-6 py-6">
-              {navLinks.map((link) => (
-                <a
-                  key={link.href}
-                  href={link.href}
-                  onClick={() => setMenuOpen(false)}
-                  className="text-sm text-[#94A3B8] hover:text-white transition-colors"
-                >
-                  {link.label}
-                </a>
-              ))}
+      {menuOpen && (
+        <div className="md:hidden bg-[#080C14]/95 backdrop-blur-xl border-b border-[#1E293B]">
+          <div className="flex flex-col gap-4 px-6 py-6">
+            {navLinks.map((link) => (
               <a
-                href="#contact"
+                key={link.href}
+                href={link.href}
                 onClick={() => setMenuOpen(false)}
-                className="text-sm bg-[#E85A1A] text-white px-5 py-2 rounded-full text-center font-medium"
+                className="text-sm text-[#94A3B8] hover:text-white transition-colors"
               >
-                Get Early Access
+                {link.label}
               </a>
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </motion.nav>
+            ))}
+            <a
+              href="#contact"
+              onClick={() => setMenuOpen(false)}
+              className="text-sm bg-[#E85A1A] text-white px-5 py-2 rounded-full text-center font-medium"
+            >
+              Get Early Access
+            </a>
+          </div>
+        </div>
+      )}
+    </nav>
   );
 }
