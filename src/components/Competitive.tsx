@@ -22,7 +22,7 @@ const competitors = [
 export default function Competitive() {
   return (
     <section className="py-24 md:py-32 px-6 relative">
-      <div className="max-w-6xl mx-auto">
+      <div className="relative z-10 max-w-6xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -30,20 +30,16 @@ export default function Competitive() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <p className="text-brand-orange text-sm font-mono tracking-[0.3em] uppercase mb-4">
+          <p className="text-[#E85A1A] text-sm font-mono tracking-[0.3em] uppercase mb-4">
             Why Atlitos
           </p>
-          <h2
-            className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6"
-            style={{ fontFamily: "var(--font-display)" }}
-          >
+          <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-white">
             THE AI SEES WHAT
             <br />
             <span className="gradient-text">YOUR COACH CAN&apos;T</span>
           </h2>
         </motion.div>
 
-        {/* Comparison table */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -54,17 +50,18 @@ export default function Competitive() {
           <div className="overflow-x-auto">
             <table className="w-full min-w-[600px]">
               <thead>
-                <tr className="border-b border-border-subtle">
-                  <th className="text-left p-4 text-sm text-text-muted font-normal">
+                <tr className="border-b border-[#1E293B]">
+                  <th className="text-left p-5 text-sm text-[#64748B] font-normal">
                     Feature
                   </th>
                   {competitors.map((c) => (
                     <th
                       key={c.name}
-                      className={`p-4 text-sm font-bold text-center ${
-                        c.name === "Atlitos" ? "text-brand-orange" : "text-text-secondary"
+                      className={`p-5 text-center font-display text-base tracking-wide ${
+                        c.name === "Atlitos"
+                          ? "text-[#E85A1A] font-bold"
+                          : "text-[#94A3B8]"
                       }`}
-                      style={{ fontFamily: "var(--font-display)", fontSize: "1rem" }}
                     >
                       {c.name}
                     </th>
@@ -75,21 +72,23 @@ export default function Competitive() {
                 {features.map((feature, fi) => (
                   <tr
                     key={fi}
-                    className="border-b border-border-subtle/50 last:border-0"
+                    className="border-b border-[#1E293B]/50 last:border-0"
                   >
-                    <td className="p-4 text-sm text-text-secondary">
-                      {feature}
-                    </td>
+                    <td className="p-5 text-sm text-[#94A3B8]">{feature}</td>
                     {competitors.map((c) => (
-                      <td key={c.name} className="p-4 text-center">
+                      <td key={c.name} className="p-5 text-center">
                         {c.values[fi] ? (
-                          <span className={`text-lg ${c.name === "Atlitos" ? "text-signal-green" : "text-text-muted"}`}>
+                          <span
+                            className={`text-lg ${
+                              c.name === "Atlitos"
+                                ? "text-[#00C27C]"
+                                : "text-[#64748B]"
+                            }`}
+                          >
                             &#10003;
                           </span>
                         ) : (
-                          <span className="text-lg text-text-muted/30">
-                            &mdash;
-                          </span>
+                          <span className="text-lg text-[#1E293B]">&mdash;</span>
                         )}
                       </td>
                     ))}
@@ -99,17 +98,6 @@ export default function Competitive() {
             </table>
           </div>
         </motion.div>
-
-        <motion.p
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.3 }}
-          className="text-center text-text-muted text-sm mt-8 max-w-lg mx-auto"
-        >
-          The white space: Real-time body mechanics AI accessible on any phone
-          with zero hardware. Nobody is there. Atlitos is going there.
-        </motion.p>
       </div>
     </section>
   );

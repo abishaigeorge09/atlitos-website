@@ -24,9 +24,9 @@ const stats = [
 export default function Problem() {
   return (
     <section id="problem" className="py-24 md:py-32 px-6 relative">
-      <div className="absolute inset-0 bg-gradient-to-b from-surface-dark to-deep-navy" />
+      <div className="absolute inset-0 bg-gradient-to-b from-[#0F1520] to-[#080C14]" />
 
-      <div className="relative max-w-6xl mx-auto">
+      <div className="relative z-10 max-w-6xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -34,16 +34,13 @@ export default function Problem() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <p className="text-brand-orange text-sm font-mono tracking-[0.3em] uppercase mb-4">
+          <p className="text-[#E85A1A] text-sm font-mono tracking-[0.3em] uppercase mb-4">
             The Problem
           </p>
-          <h2
-            className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6"
-            style={{ fontFamily: "var(--font-display)" }}
-          >
+          <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-white">
             THE TALENT EXISTS EVERYWHERE.
             <br />
-            <span className="text-text-muted">THE ACCESS DOES NOT.</span>
+            <span className="text-[#64748B]">THE ACCESS DOES NOT.</span>
           </h2>
         </motion.div>
 
@@ -55,17 +52,12 @@ export default function Problem() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-50px" }}
               transition={{ duration: 0.5, delay: i * 0.1 }}
-              className="glass-card rounded-2xl p-8 hover:border-brand-orange/30 transition-colors duration-300"
+              className="glass-card rounded-2xl p-8"
             >
-              <p
-                className="text-4xl md:text-5xl font-bold gradient-text mb-3"
-                style={{ fontFamily: "var(--font-display)" }}
-              >
+              <p className="font-display text-4xl md:text-5xl font-bold gradient-text mb-3">
                 {stat.number}
               </p>
-              <p className="text-text-secondary leading-relaxed">
-                {stat.text}
-              </p>
+              <p className="text-[#94A3B8] leading-relaxed">{stat.text}</p>
             </motion.div>
           ))}
         </div>

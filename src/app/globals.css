@@ -5,7 +5,7 @@
   --color-brand-orange-dark: #C44A12;
   --color-deep-navy: #080C14;
   --color-surface-dark: #0F1520;
-  --color-card-dark: #131C2E;
+  --color-card-dark: #1A2332;
   --color-electric-blue: #1A6BFF;
   --color-signal-green: #00C27C;
   --color-alert-gold: #F5B800;
@@ -30,7 +30,7 @@ html {
 }
 
 body {
-  font-family: var(--font-body);
+  font-family: 'DM Sans', sans-serif;
   background-color: #080C14;
   color: #FFFFFF;
   overflow-x: hidden;
@@ -41,6 +41,10 @@ body {
   color: #FFFFFF;
 }
 
+.font-display {
+  font-family: 'Bebas Neue', sans-serif;
+}
+
 .gradient-text {
   background: linear-gradient(135deg, #E85A1A, #F5B800);
   -webkit-background-clip: text;
@@ -49,13 +53,17 @@ body {
 }
 
 .glass-card {
-  background: rgba(19, 28, 46, 0.6);
+  background: rgba(26, 35, 50, 0.8);
   backdrop-filter: blur(12px);
-  border: 1px solid rgba(30, 41, 59, 0.5);
+  border: 1px solid rgba(30, 41, 59, 0.6);
+}
+
+.glass-card:hover {
+  border-color: rgba(232, 90, 26, 0.3);
 }
 
 .glow-orange {
-  box-shadow: 0 0 60px rgba(232, 90, 26, 0.15);
+  box-shadow: 0 0 40px rgba(232, 90, 26, 0.2);
 }
 
 .glow-line {
