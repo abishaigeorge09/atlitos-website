@@ -1,0 +1,75 @@
+"use client";
+
+import { motion } from "framer-motion";
+
+const stats = [
+  {
+    number: "100M+",
+    text: "tennis players worldwide train with zero real-time AI feedback on body mechanics",
+  },
+  {
+    number: "4,000+",
+    text: "tennis academies in India with 3M club players — no AI training system",
+  },
+  {
+    number: "$10–$200",
+    text: "per session for professional coaching — out of reach for most players",
+  },
+  {
+    number: "$600M+",
+    text: "spent on AI tennis coaching tools in 2025 — almost none reaches individual players",
+  },
+];
+
+export default function Problem() {
+  return (
+    <section id="problem" className="py-24 md:py-32 px-6 relative">
+      <div className="absolute inset-0 bg-gradient-to-b from-surface-dark to-deep-navy" />
+
+      <div className="relative max-w-6xl mx-auto">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.6 }}
+          className="text-center mb-16"
+        >
+          <p className="text-brand-orange text-sm font-mono tracking-[0.3em] uppercase mb-4">
+            The Problem
+          </p>
+          <h2
+            className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6"
+            style={{ fontFamily: "var(--font-display)" }}
+          >
+            THE TALENT EXISTS EVERYWHERE.
+            <br />
+            <span className="text-text-muted">THE ACCESS DOES NOT.</span>
+          </h2>
+        </motion.div>
+
+        <div className="grid md:grid-cols-2 gap-6">
+          {stats.map((stat, i) => (
+            <motion.div
+              key={i}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ duration: 0.5, delay: i * 0.1 }}
+              className="glass-card rounded-2xl p-8 hover:border-brand-orange/30 transition-colors duration-300"
+            >
+              <p
+                className="text-4xl md:text-5xl font-bold gradient-text mb-3"
+                style={{ fontFamily: "var(--font-display)" }}
+              >
+                {stat.number}
+              </p>
+              <p className="text-text-secondary leading-relaxed">
+                {stat.text}
+              </p>
+            </motion.div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}

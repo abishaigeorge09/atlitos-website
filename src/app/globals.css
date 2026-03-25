@@ -1,26 +1,64 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-brand-orange: #E85A1A;
+  --color-brand-orange-dark: #C44A12;
+  --color-deep-navy: #080C14;
+  --color-surface-dark: #0F1520;
+  --color-card-dark: #131C2E;
+  --color-electric-blue: #1A6BFF;
+  --color-signal-green: #00C27C;
+  --color-alert-gold: #F5B800;
+  --color-text-secondary: #94A3B8;
+  --color-text-muted: #64748B;
+  --color-border-subtle: #1E293B;
+  --font-display: 'Bebas Neue', sans-serif;
+  --font-body: 'DM Sans', sans-serif;
+  --font-mono: 'DM Mono', monospace;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  background-color: #080C14;
+  color: #FFFFFF;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-body);
+  background-color: #080C14;
+  color: #FFFFFF;
+  overflow-x: hidden;
+}
+
+::selection {
+  background-color: #E85A1A;
+  color: #FFFFFF;
+}
+
+.gradient-text {
+  background: linear-gradient(135deg, #E85A1A, #F5B800);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.glass-card {
+  background: rgba(19, 28, 46, 0.6);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(30, 41, 59, 0.5);
+}
+
+.glow-orange {
+  box-shadow: 0 0 60px rgba(232, 90, 26, 0.15);
+}
+
+.glow-line {
+  background: linear-gradient(90deg, transparent, #E85A1A, transparent);
+  height: 1px;
 }
